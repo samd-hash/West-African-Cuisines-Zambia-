@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West African Cuisines Zambia</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; }
+        header { text-align: center; padding: 20px 0; background: #e67e22; color: white; border-radius: 10px; margin-bottom: 20px; }
+        .menu-item { background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .details h3 { margin: 0; color: #2c3e50; }
+        .details p { margin: 5px 0; color: #7f8c8d; font-size: 0.9em; }
+        .price { font-weight: bold; color: #27ae60; font-size: 1.1em; }
+        .order-btn { background-color: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .order-btn:hover { background-color: #128C7E; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>West African Cuisines</h1>
+    <p>Authentic Flavors in Zambia</p>
+</header>
+
+<div id="menu-container">
+    </div>
+
+<script>
+    const menu = [
+        { name: "West African Platter", price: "900.00", desc: "Jollof, Plantain, T-Bone, Chicken, Fish" },
+        { name: "Jollof with T-bone", price: "250.00", desc: "Smoky Jollof with grilled T-bone" },
+        { name: "Egusi with Jollof (Trotters)", price: "235.00", desc: "Rich melon seed soup with tender trotters" },
+        { name: "Plantain Fries (XL)", price: "150.00", desc: "400g Large sharing portion" },
+        { name: "Shiito (750ml)", price: "800.00", desc: "Traditional black pepper sauce" }
+    ];
+
+    const container = document.getElementById('menu-container');
+    const myWhatsApp = "260956109150";
+
+    menu.forEach(item => {
+        const orderText = encodeURIComponent(`Hello! I want to order ${item.name} (ZMW ${item.price})`);
+        container.innerHTML += `
+            <div class="menu-item">
+                <div class="details">
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <span class="price">ZMW ${item.price}</span>
+                </div>
+                <a href="https://wa.me/${myWhatsApp}?text=${orderText}" class="order-btn" target="_blank">Order</a>
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
